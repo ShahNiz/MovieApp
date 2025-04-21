@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const MovieDetails = () => {
-  const params = useParams();
+  const {id} = useParams();
   const [movie, setmovie] = useState({});
 
   useEffect(() => {
     async function fetchMovie() {
-      const res = await fetch(`https://api.themoviedb.org/3/movie/${params.id}?api_key=602cd1313e12fc966a43045affd4e606&language=en-US&page=1
+      const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=602cd1313e12fc966a43045affd4e606&language=en-US&page=1
 `);
       const json = await res.json();
       setmovie(json);
